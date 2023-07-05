@@ -1,4 +1,3 @@
-# nginx/templates/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -22,16 +21,19 @@ spec:
             - containerPort: 80
               name: http
           {{- if .Values.https.enabled }}
-          - containerPort: {{ .Values.https.tlsPort }}
-            name: https
-          {{- end }}
-          {{- if .Values.https.enabled and .Values.https.selfSigned }}
-          volumeMounts:
-            - name: tls-certs
-              mountPath: /etc/nginx/certs
-              readOnly: true
-          {{- end }}
-      {{- if .Values.https.enabled and .Values.https.selfSigned }}
+          - name: {{ .Chart.Name }}-https
+            image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+            ports:
+              - containerPort: {{ .Values.https.tlsPort }}
+                name: https
+            {{- if .Values.https.selfSigned }}
+            volumeMounts:
+              - name: tls-certs
+                mountPath: /etc/nginx/certs
+                readOnly: true
+            {{- end }}
+            {{- end }}
+      {{- if and .Values.https.enabled .Values.https.selfSigned }}
       initContainers:
         - name: generate-certs
           image: alpine:latest
