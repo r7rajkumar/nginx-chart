@@ -1,10 +1,14 @@
-# nginx/values.yaml
 replicaCount: 1
 
 service:
   type: NodePort
   port: 80
   nodePort: 30080
+
+image:
+  repository: nginx
+  tag: 1.21.1
+  pullPolicy: IfNotPresent
 
 ingress:
   enabled: false
