@@ -1,0 +1,49 @@
+# nginx/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "nginx.fullname" . }}
+  labels:
+    {{- include "nginx.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "nginx.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "nginx.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 80
+              name: http
+          {{- if .Values.https.enabled }}
+          - containerPort: {{ .Values.https.tlsPort }}
+            name: https
+          {{- end }}
+          {{- if .Values.https.enabled and .Values.https.selfSigned }}
+          volumeMounts:
+            - name: tls-certs
+              mountPath: /etc/nginx/certs
+              readOnly: true
+          {{- end }}
+      {{- if .Values.https.enabled and .Values.https.selfSigned }}
+      initContainers:
+        - name: generate-certs
+          image: alpine:latest
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              apk add --no-cache openssl
+              openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/certs/tls.key -out /etc/nginx/certs/tls.crt -subj "/CN=mynginx"
+          volumeMounts:
+            - name: tls-certs
+              mountPath: /etc/nginx/certs
+      volumes:
+        - name: tls-certs
+          emptyDir: {}
+      {{- end }}
