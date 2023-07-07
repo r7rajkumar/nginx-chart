@@ -11,12 +11,24 @@ image:
   pullPolicy: IfNotPresent
 
 ingress:
-  enabled: false
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"  # Enable HTTPS redirection
+  hostname: Banupriyas-Air
+
 
 tls:
-  enabled: false
+  enabled: true
   selfSigned: true
-  secretName: ""
+  secretName: nginx-tls-secret
+  crt: |-
+    -----BEGIN CERTIFICATE-----
+    {{ .Files.Get "tls.crt" | indent 8 }}
+    -----END CERTIFICATE-----
+  key: |-
+    -----BEGIN PRIVATE KEY-----
+    {{ .Files.Get "tls.key" | indent 8 }}
+    -----END PRIVATE KEY-----
 
 https:
   enabled: false
