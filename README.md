@@ -9,7 +9,6 @@ Helm
 Installation
 Clone the repository:
 
-
 git clone <repository-url>
 Customize the values in nginx-chart/values.yaml according to your requirements. Pay attention to the https.enabled flag, which enables or disables HTTPS support.
 
