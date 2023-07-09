@@ -1,4 +1,4 @@
-#Helm chart enables the deployment of an NGINX server on Kubernetes using a self-signed certificate
+##Helm chart enables the deployment of an NGINX server on Kubernetes using a self-signed certificate
 
 Prerequisites: Kubernetes cluster Helm Installation
 
@@ -37,7 +37,6 @@ Update your local DNS or hosts file to map demo.rajkumar.home to the IP address 
 Open a web browser and navigate to https://demo.rajkumar.home You can replace with your hostname to verify the page.
 
 <img width="844" alt="Screenshot 2023-07-09 at 11 18 29 AM" src="https://github.com/r7rajkumar/nginx-chart/assets/27937636/3d726f80-56e3-46f1-8721-2066d9bdadfa">
-
 
 Cleaning Up:
 
