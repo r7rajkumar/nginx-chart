@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: hello-app-tls
+  namespace: dev
+type: kubernetes.io/tls
+data:
+  tls.crt: |
+        -----BEGIN CERTIFICATE-----
+        MIIDBDCCAewCCQCHM1zlGd8o5zANBgkqhkiG9w0BAQsFADBEMQswCQYDVQQGEwJT
+        RzELMAkGA1UECAwCU0cxCzAJBgNVBAcMAlNHMRswGQYDVQQDDBJkZW1vLnJhamt1
+        bWFyLmhvbWUwHhcNMjMwNzA5MDEzOTE3WhcNMjQwNzA4MDEzOTE3WjBEMQswCQYD
+        VQQGEwJTRzELMAkGA1UECAwCU0cxCzAJBgNVBAcMAlNHMRswGQYDVQQDDBJkZW1v
+        LnJhamt1bWFyLmhvbWUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDE
+        LqoMZiYFyFf1NtBCP89A0SlFRFDGYbIXizmaeSgVK0OwfUyB+kMzmEIKkcgrQrZ6
+        twgVo9Wy6YZs32xfxxsJJeJphoKzrAJ1L6qwN9K0eNcqcOVCcajeGf5dKYnsBJpQ
+        WQ75p8/FUN9SFwX35D3yNTq3hS0kTTcw2Q4z1Rs3hIvmtPc8Hzwle1chix1DV3xy
+        XGZOdLUXTYUYinS14guVuSdyFEnSIkHpNCskDMIyXVsUOtQGptlQviKFXyCNdBl8
+        Fn8druHUa8dym3+YHqpuv7u5kiknfAum0NVTp7n7bW+OGPQ3lVhS2S1VBrCHWvs6
+        0J9Tplz2859U20ZfrNx/AgMBAAEwDQYJKoZIhvcNAQELBQADggEBADoXOAcaYl18
+        d9VUnayBTXIOhS06hAIepnbae5HfawvpMma6qzxSVmUl02wWMeOP6wocTl00326W
+        ad2pHcSfCIdmDrbdq+wkfrFyeUx5ls6vSZcPFg17aXQLl//CaLXheBxoASFLmvSg
+        9Mvd3Vm+LoX1MLc5MmuF+zWXVpmajOPtbwRmfrC675moTosaimCPTZEFmc9CrM1c
+        SU+7M6HPNhuAf+7T/kaqC8XZwDQJhhzfTKH+KLPF+jZf9Wak8fONhw6Bfs8CdTTQ
+        eKlm+bd1QDDV5oJRnd4gc+iI4ujUbvhP4UH3qfWniqK5RJpAhRs/Dg21uyCUC01z
+        JJxR1ctN3Pw=
+        -----END CERTIFICATE-----
+  tls.key: |
+        -----BEGIN RSA PRIVATE KEY-----
+        MIIEowIBAAKCAQEAxC6qDGYmBchX9TbQQj/PQNEpRURQxmGyF4s5mnkoFStDsH1M
+        gfpDM5hCCpHIK0K2ercIFaPVsumGbN9sX8cbCSXiaYaCs6wCdS+qsDfStHjXKnDl
+        QnGo3hn+XSmJ7ASaUFkO+afPxVDfUhcF9+Q98jU6t4UtJE03MNkOM9UbN4SL5rT3
+        PB88JXtXIYsdQ1d8clxmTnS1F02FGIp0teILlbknchRJ0iJB6TQrJAzCMl1bFDrU
+        BqbZUL4ihV8gjXQZfBZ/Ha7h1GvHcpt/mB6qbr+7uZIpJ3wLptDVU6e5+21vjhj0
+        N5VYUtktVQawh1r7OtCfU6Zc9vOfVNtGX6zcfwIDAQABAoIBAQC9w6mnPrOuykES
+        qAfA3Xo7Z1b1coRzsJKVJY39tw4nk+bw8/Kqk4qngLL5CFTIS8q5XwyJ6iVO34ax
+        D1kEOFMVgTjF/F+3Lj5eXlJMDGNbQLxYiEWrBMhktl4OfZy02SrvZ4YNxd47LeQm
+        wrB6PaQSAp0eYcrtn2cwb/TF/HBMPM3+yhog9erM2xBxgzexo3rrPRyyX1rHvSgx
+        uyf3hJoVw7C4Kpw0CbqFaF/NuoeygnTWQJYrwgdog/4/ZY+dwbIyjNMCQipD9U8R
+        azEQq/dBFXDFW1KBzMFgFZN7NUS7SSUwiSMb0y29yWd+885RCIVCBXcIzQAyFAfe
+        jtR4IBSRAoGBAPPrrALLNsj/6cEvsO7+WbFB6+XilPql5aHhFOSVC1ensC7krb3p
+        0nhtajlgG2p/Tc8uMSFzsqKnpmGDgzas2aPuw/K/fbmp6LcMBm+JguJZ6NAqZc6B
+        LG+frwQPrvKOnrtkjLr9uWynrxf2EWCyJnMfdiX/t0C2vcUjQqZ6z3DZAoGBAM3l
+        yPjrVTwIbtKkYPuAJMoRVRHZytA1hJ/Xkoj1I0+e+V52pshC5Bp+z1a13B6dJv7Y
+        kHx6x6ZzWn7yeVB7MTms11+0OSigPPzBZxGNQfEZJUWYELJClYYc1pHK2Rc4OJ9X
+        lDqYW7G0/z+CWDukWLGHkJlbzO0YY0RrOl3S0+EXAoGAdsD/nuCXDKbjhIWWi9TT
+        kCQ7GFIHHDzWnsh5powV2Jgwg7QcDoEfUjha5hIvZtsR49NmYhX1G5GpxIIFyQHA
+        eDqPtcibCmB5h1zYaUc2rML/QRHTPQXQv4ur5rtH/pmHGE7s4UEUHJ1K9sx7S2uQ
+        oq3nlLp52ozduXPgSDM0eYkCgYA/r3aFP81CX11f/AYfZJh8g/XrKpFn61XVVwl1
+        IVXFt+dsB4k44i/J3jVlnaSzN2qrYvL1/cgpPP7dy0Qo16H3M/X+HTGc1ktm5q9p
+        p2ahG2UC7LElYiD7tYnM2JBjdTlWV/F6WkvqYJCe5UNDV2czqjnYpaNyJpv1urD3
+        +lEdCwKBgBAgpr+Blrdot/Fku7jI71W7TmIe2ISY4yysaqTvyq9V3NmfMhqcyGEz
+        3BdF9IZmeo8k6+3KxzEDJljB4n/LnDoylVY+8TVz4d+ERZBDF4krlkre+t823lhn
+        IMGiB2cpwPan5LQ+kB9NfU6FDWwOHjE6qnHoNbtItH1YCzhRS5GJ
+        -----END RSA PRIVATE KEY-----

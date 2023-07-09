@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-ingress1
+  namespace: default
+spec:
+  selector:
+    app: my-ingress1
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

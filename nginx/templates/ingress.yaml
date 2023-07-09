@@ -1,20 +1,22 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: my-ingress1
+  name: hello-app-ingress
+  namespace: dev
 spec:
-  rules:
-    - host: mynginx
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: my-ingress1
-                port:
-                  number: 80
+  ingressClassName: nginx
   tls:
-    - hosts:
-        - mynginx
-      secretName: nginx-tls-secret
+  - hosts:
+    - demo.rajkumar.home
+    secretName: hello-app-tls
+  rules:
+  - host: "demo.rajkumar.home"
+    http:
+      paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: hello-service
+              port:
+                number: 80

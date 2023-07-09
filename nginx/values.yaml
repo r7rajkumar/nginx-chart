@@ -14,23 +14,15 @@ ingress:
   enabled: true
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"  # Enable HTTPS redirection
-  hostname: Banupriyas-Air
+  hostname: demo.rajkumar.home
 
 
 tls:
   enabled: true
   selfSigned: true
-  secretName: nginx-tls-secret
-  crt: |-
-    -----BEGIN CERTIFICATE-----
-    {{ .Files.Get "tls.crt" | indent 8 }}
-    -----END CERTIFICATE-----
-  key: |-
-    -----BEGIN PRIVATE KEY-----
-    {{ .Files.Get "tls.key" | indent 8 }}
-    -----END PRIVATE KEY-----
+
 
 https:
-  enabled: false
+  enabled: true
   tlsPort: 443
-  redirectToHttps: false
+  redirectToHttps: true
